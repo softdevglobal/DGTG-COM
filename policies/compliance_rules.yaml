@@ -1,0 +1,53 @@
+version: 1
+name: DGTG Compliance Operating Rules
+
+system_wide:
+  no_hard_delete: true
+  archive_only: true
+  full_audit_trail_required: true
+  timestamp_every_action: true
+
+approval_workflows:
+  policy:
+    states: [DRAFT, REVIEW, APPROVED, PUBLISHED]
+    move_to_review: [COMPLIANCE_OFFICER, SUPER_ADMIN]
+    approve: [DIRECTOR, SUPER_ADMIN]
+  incident:
+    states: [REPORTED, REVIEW, INVESTIGATING, ACTIONED, CLOSED]
+    close_authorized: [COMPLIANCE_OFFICER, SUPER_ADMIN]
+
+auto_classification:
+  reportable_rule:
+    when:
+      injury: true
+      incident_type: participant-related
+    then:
+      reportable_incident: true
+      manual_override: false
+
+privacy_guard:
+  mask_by_default_fields:
+    - full_date_of_birth
+    - address
+    - phone_number
+    - government_identifiers
+    - safeguarding_notes
+    - distress_flags
+  reveal_requires_reason: true
+  reveal_requires_logging: true
+
+ai_oversight:
+  allowed:
+    - suggest_draft_incident
+    - summarise
+    - detect_missing_compliance
+  prohibited:
+    - close_incident
+    - approve_policy
+    - final_safeguarding_decision
+  mandatory_logging:
+    - source_data_used
+    - trigger_reason
+    - confidence_score
+    - resulting_suggestion
+    - human_reviewer
