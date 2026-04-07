@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DGTG Compliance Pulse</title>
+  <style>
+    body { font-family: Inter, Arial, sans-serif; margin: 0; background: #0b1020; color: #ecf1ff; }
+    header { padding: 20px; background: #141d3a; border-bottom: 1px solid #2d3b6f; }
+    main { padding: 20px; display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .card { background: #121a33; border: 1px solid #2a3769; border-radius: 12px; padding: 16px; }
+    .gauge { font-size: 2rem; font-weight: 700; color: #6ee7b7; }
+    .alert { color: #fca5a5; margin: 6px 0; }
+    button { background: #3b82f6; border: none; color: white; border-radius: 8px; padding: 10px 12px; cursor: pointer; }
+    code { color: #93c5fd; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DGTG Proactive Compliance Operating System</h1>
+    <p>Real-time readiness across governance, supports, environment, and AI oversight.</p>
+  </header>
+  <main>
+    <section class="card">
+      <h2>Compliance Pulse Gauge</h2>
+      <div id="overall" class="gauge">--%</div>
+      <p>Governance: <span id="gov">--</span></p>
+      <p>Provision: <span id="prov">--</span></p>
+      <p>Environment: <span id="env">--</span></p>
+      <button onclick="refreshPulse()">Refresh Score</button>
+      <div id="alerts"></div>
+    </section>
+
+    <section class="card">
+      <h2>Heartbeat Monitoring</h2>
+      <p>AI monitors chat/forum/training streams for distress and safeguarding triggers.</p>
+      <code>/heartbeat/analyse</code>
+    </section>
+
+    <section class="card">
+      <h2>Dynamic Training Matrix</h2>
+      <p>Assignment is blocked when mandatory training is incomplete.</p>
+      <code>/training/eligibility</code>
+    </section>
+
+    <section class="card">
+      <h2>Privacy Guard</h2>
+      <p>Sensitive PII is masked by default. Reveal events require reason + log.</p>
+      <code>/privacy/reveal-request</code>
+    </section>
+
+    <section class="card">
+      <h2>Smart Incident Classification</h2>
+      <p>Participant-related injury incidents are forced reportable with no override.</p>
+      <code>/incidents</code>
+    </section>
+
+    <section class="card">
+      <h2>AI Oversight</h2>
+      <p>AI can suggest but cannot close incidents or make final safeguarding decisions.</p>
+      <code>/ai/activity-log</code>
+    </section>
+  </main>
+
+  <script>
+    async function refreshPulse() {
+      const url = 'http://localhost:8000/dashboard/compliance-pulse?policy_last_review_days=390&expiring_screenings_30d=4&incidents_open_gt_5d=2&missing_progress_notes=5';
+      const res = await fetch(url);
+      const data = await res.json();
+      document.getElementById('overall').textContent = data.gauge;
+      document.getElementById('gov').textContent = data.governance_score + '%';
+      document.getElementById('prov').textContent = data.provision_score + '%';
+      document.getElementById('env').textContent = data.environment_score + '%';
+      document.getElementById('alerts').innerHTML = (data.alerts || []).map(a => `<div class="alert">⚠ ${a}</div>`).join('');
+    }
+  </script>
+</body>
+</html>
