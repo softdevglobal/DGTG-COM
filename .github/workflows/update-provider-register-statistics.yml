@@ -22,7 +22,7 @@ jobs:
   update:
     name: Fetch and publish aggregate statistics
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Check out repository
@@ -33,8 +33,88 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Generate aggregate report
-        run: python scripts/update_provider_register_stats.py
+      - name: Stream official Provider Register CSV with retries
+        shell: bash
+        run: |
+          set -euo pipefail
+          csv_url="https://www.ndiscommission.gov.au/provider-registration/find-registered-provider/download-csv"
+          csv_path="/tmp/ndis-provider-register.csv"
+          header_path="/tmp/ndis-provider-register.headers"
+
+          curl \
+            --fail \
+            --location \
+            --compressed \
+            --connect-timeout 30 \
+            --max-time 600 \
+            --retry 3 \
+            --retry-delay 15 \
+            --retry-all-errors \
+            --user-agent "Mozilla/5.0 (compatible; DGTG-Provider-Register-Research/1.0; +https://github.com/softdevglobal/DGTG-COM)" \
+            --header "Accept: text/csv,text/plain;q=0.9,*/*;q=0.1" \
+            --dump-header "$header_path" \
+            --output "$csv_path" \
+            "$csv_url"
+
+          test -s "$csv_path"
+          bytes=$(wc -c < "$csv_path")
+          echo "Downloaded $bytes bytes"
+          if [ "$bytes" -lt 200 ]; then
+            echo "Downloaded file is unexpectedly small"
+            cat "$csv_path"
+            exit 1
+          fi
+
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("/tmp/ndis-provider-register.csv")
+          sample = path.read_bytes()[:2048].lstrip().lower()
+          if sample.startswith(b"<!doctype") or sample.startswith(b"<html"):
+              raise SystemExit("The download returned HTML instead of CSV")
+          if b"," not in sample:
+              raise SystemExit("The download does not appear to contain a comma-separated header")
+          print("CSV download passed basic content checks")
+          PY
+
+      - name: Generate aggregate report from downloaded CSV
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from __future__ import annotations
+
+          import importlib.util
+          import sys
+          from pathlib import Path
+
+          script_path = Path("scripts/update_provider_register_stats.py")
+          spec = importlib.util.spec_from_file_location("provider_stats", script_path)
+          if spec is None or spec.loader is None:
+              raise SystemExit("Could not load provider statistics generator")
+
+          module = importlib.util.module_from_spec(spec)
+          sys.modules[spec.name] = module
+          spec.loader.exec_module(module)
+
+          csv_path = Path("/tmp/ndis-provider-register.csv")
+          header_path = Path("/tmp/ndis-provider-register.headers")
+          headers: dict[str, str] = {}
+          for line in header_path.read_text(encoding="utf-8", errors="replace").splitlines():
+              if ":" not in line:
+                  continue
+              key, value = line.split(":", 1)
+              headers[key.strip().casefold()] = value.strip()
+
+          payload = module.DownloadResult(
+              content=csv_path.read_bytes(),
+              content_type=headers.get("content-type", "text/csv"),
+              last_modified=headers.get("last-modified"),
+              etag=headers.get("etag"),
+          )
+          module.download_csv = lambda: payload
+          raise SystemExit(module.main())
+          PY
 
       - name: Verify aggregate-only output schema
         shell: bash
