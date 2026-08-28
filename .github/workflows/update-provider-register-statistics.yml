@@ -36,16 +36,48 @@ jobs:
       - name: Generate aggregate report
         run: python scripts/update_provider_register_stats.py
 
-      - name: Verify no provider-level identifiers were written
+      - name: Verify aggregate-only output schema
         shell: bash
         run: |
           set -euo pipefail
           test -f data/provider-register-summary.json
           test -f PROVIDER_REGISTER_STATISTICS.md
-          if grep -Eiq '"(provider_name|legal_name|business_name|abn)"[[:space:]]*:' data/provider-register-summary.json; then
-            echo "Provider-level field found in public summary; refusing to publish."
-            exit 1
-          fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("data/provider-register-summary.json")
+          data = json.loads(path.read_text(encoding="utf-8"))
+
+          forbidden_top_level = {
+              "providers",
+              "records",
+              "rows",
+              "provider_names",
+              "business_names",
+              "legal_names",
+              "abns",
+              "contacts",
+          }
+          leaked = forbidden_top_level.intersection(data)
+          if leaked:
+              raise SystemExit(f"Provider-level collections found: {sorted(leaked)}")
+
+          counts = data.get("counts")
+          if not isinstance(counts, dict):
+              raise SystemExit("Missing aggregate counts object")
+
+          for dimension, items in counts.items():
+              if not isinstance(items, list):
+                  raise SystemExit(f"{dimension} is not an aggregate list")
+              for item in items:
+                  if not isinstance(item, dict) or set(item) != {"label", "count"}:
+                      raise SystemExit(f"Invalid aggregate item in {dimension}: {item!r}")
+                  if not isinstance(item["label"], str) or not isinstance(item["count"], int):
+                      raise SystemExit(f"Invalid aggregate types in {dimension}: {item!r}")
+
+          print("Aggregate-only output schema verified")
+          PY
 
       - name: Commit changed aggregate outputs
         shell: bash
