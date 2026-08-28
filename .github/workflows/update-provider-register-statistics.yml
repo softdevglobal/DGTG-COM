@@ -1,0 +1,62 @@
+name: Update NDIS Provider Register statistics
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 2 * * 1"
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/update_provider_register_stats.py"
+      - ".github/workflows/update-provider-register-statistics.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: provider-register-statistics
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Fetch and publish aggregate statistics
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate aggregate report
+        run: python scripts/update_provider_register_stats.py
+
+      - name: Verify no provider-level identifiers were written
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f data/provider-register-summary.json
+          test -f PROVIDER_REGISTER_STATISTICS.md
+          if grep -Eiq '"(provider_name|legal_name|business_name|abn)"[[:space:]]*:' data/provider-register-summary.json; then
+            echo "Provider-level field found in public summary; refusing to publish."
+            exit 1
+          fi
+
+      - name: Commit changed aggregate outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- data/provider-register-summary.json PROVIDER_REGISTER_STATISTICS.md
+          if git diff --cached --quiet; then
+            echo "No provider-register changes to publish."
+            exit 0
+          fi
+          git commit -m "Update aggregate NDIS Provider Register statistics"
+          git push
