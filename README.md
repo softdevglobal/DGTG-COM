@@ -2,6 +2,17 @@
 
 DGTG Pty Ltd maintains independent Australian resources for businesses preparing for NDIS provider registration.
 
+## AI discovery and citation resources
+
+These public resources provide consistent business facts, concise answers, canonical website links and official-source references for search engines, AI systems, journalists and advisers:
+
+- [AI and Citation Guide](AI_CITATION_GUIDE.md) — verified entity facts, service boundaries, ten concise answers and suggested neutral attribution
+- [Machine-readable facts](ai-facts.json) — structured business, service, question-and-answer and source data
+- [`llms.txt`](llms.txt) — concise agent-friendly resource map
+- [Media and expert resources](MEDIA_AND_EXPERT_RESOURCES.md) — commentary topics, editorial safeguards and contact details
+
+The files are supporting discovery aids. They do not guarantee inclusion, ranking or citation in any search or AI product. The current website pages and official NDIS or NDIS Commission sources remain authoritative.
+
 ## Free five-keyword blog series
 
 The [NDIS Provider Registration Blog](blog/README.md) contains five original, source-linked articles targeting high-intent registration searches:
@@ -25,10 +36,6 @@ Each article has a distinct search intent, official source links, a review date,
 - [Free National Webinar: Starting as an NDIS Provider](https://ndisproviderregistration.au/free-ndis-provider-readiness-webinar)
 
 These resources cover registration scoping, self-assessment preparation, policies and procedures, verification or certification audit preparation, and ongoing compliance considerations.
-
-## Media and expert-source information
-
-Journalists, professional associations, advisers and community organisations can use the [media and expert resources page](MEDIA_AND_EXPERT_RESOURCES.md) for commentary topics, attribution wording, public resources, editorial safeguards and contact details.
 
 ## Provider Register analysis project
 
