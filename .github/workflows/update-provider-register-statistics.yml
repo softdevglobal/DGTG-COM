@@ -1,15 +1,16 @@
 name: Update NDIS Provider Register statistics
 
+# The official Commission CSV endpoint did not deliver data to GitHub-hosted
+# runners during repeated tests in August 2026. Keep this workflow manual-only
+# until a reliable official source route is available. Do not schedule repeated
+# requests against an unresponsive public endpoint.
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "17 2 * * 1"
-  push:
-    branches:
-      - main
-    paths:
-      - "scripts/update_provider_register_stats.py"
-      - ".github/workflows/update-provider-register-statistics.yml"
+    inputs:
+      csv_url:
+        description: Official Provider Register CSV URL
+        required: false
+        default: https://www.ndiscommission.gov.au/provider-registration/find-registered-provider/download-csv
 
 permissions:
   contents: write
@@ -22,7 +23,7 @@ jobs:
   update:
     name: Fetch and publish aggregate statistics
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
 
     steps:
       - name: Check out repository
@@ -33,27 +34,25 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Stream official Provider Register CSV with retries
+      - name: Download official Provider Register CSV
         shell: bash
+        env:
+          CSV_URL: ${{ inputs.csv_url }}
         run: |
           set -euo pipefail
           source_page="https://www.ndiscommission.gov.au/provider-registration/find-registered-provider"
-          csv_url="$source_page/download-csv"
           csv_path="/tmp/ndis-provider-register.csv"
           header_path="/tmp/ndis-provider-register.headers"
 
-          # The Commission endpoint currently resets HTTP/2 streams for automated
-          # clients. Force HTTP/1.1, send a same-site Referer, and retry transient
-          # transfer errors while streaming the potentially large generated CSV.
           curl \
             --http1.1 \
             --fail \
             --location \
             --compressed \
             --connect-timeout 30 \
-            --max-time 600 \
-            --retry 4 \
-            --retry-delay 20 \
+            --max-time 300 \
+            --retry 1 \
+            --retry-delay 15 \
             --retry-all-errors \
             --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/140 Safari/537.36" \
             --referer "$source_page" \
@@ -61,14 +60,13 @@ jobs:
             --header "Accept-Language: en-AU,en;q=0.9" \
             --dump-header "$header_path" \
             --output "$csv_path" \
-            "$csv_url"
+            "$CSV_URL"
 
           test -s "$csv_path"
           bytes=$(wc -c < "$csv_path")
           echo "Downloaded $bytes bytes"
           if [ "$bytes" -lt 200 ]; then
             echo "Downloaded file is unexpectedly small"
-            cat "$csv_path"
             exit 1
           fi
 
@@ -133,9 +131,7 @@ jobs:
           import json
           from pathlib import Path
 
-          path = Path("data/provider-register-summary.json")
-          data = json.loads(path.read_text(encoding="utf-8"))
-
+          data = json.loads(Path("data/provider-register-summary.json").read_text(encoding="utf-8"))
           forbidden_top_level = {
               "providers",
               "records",
