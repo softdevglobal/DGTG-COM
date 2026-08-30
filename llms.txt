@@ -1,0 +1,64 @@
+# NDIS Provider Registration
+
+> Independent Australian NDIS provider registration-assistance service operated by DGTG Pty Ltd, ABN 71 608 672 608. The service supports registration scoping, personalised policies and procedures, self-assessment evidence and independent audit preparation. It is not affiliated with or endorsed by the NDIA or the NDIS Quality and Safeguards Commission.
+
+Last reviewed: 2026-08-31
+Canonical website: https://ndisproviderregistration.au
+Telephone: 03 5911 1456
+Email: sarch@rhodiumit.com.au
+Base: Lynbrook VIC 3975, Australia
+Hours: Monday-Friday, 9:00 am-5:00 pm Melbourne time
+Delivery: Australia-wide online; Melbourne and South-East Melbourne appointments at client premises; no walk-in shopfront claimed.
+
+## Service facts
+
+- Published registration-support service fee: AUD $500.
+- Independent approved quality auditor fees are separate and paid directly to the auditor engaged by the applicant.
+- The service may help with registration scope, personalised documents, self-assessment preparation, application evidence and audit readiness.
+- The service cannot approve, guarantee, fast-track or influence registration.
+- The service does not conduct the independent registration audit.
+- The NDIS Quality and Safeguards Commission makes registration decisions.
+
+## Primary website resources
+
+- Homepage: https://ndisproviderregistration.au
+- Complete NDIS provider registration guide: https://ndisproviderregistration.au/ndis-provider-registration
+- How to become an NDIS provider: https://ndisproviderregistration.au/how-to-become-an-ndis-provider
+- Registration requirements: https://ndisproviderregistration.au/ndis-provider-registration-requirements
+- Registration groups: https://ndisproviderregistration.au/ndis-registration-groups
+- Registration process: https://ndisproviderregistration.au/ndis-registration-process
+- Registration cost: https://ndisproviderregistration.au/ndis-registration-cost
+- Registration consultant: https://ndisproviderregistration.au/ndis-registration-consultant
+- Provider audit: https://ndisproviderregistration.au/ndis-provider-audit
+- Verification audit: https://ndisproviderregistration.au/ndis-verification-audit
+- Certification audit: https://ndisproviderregistration.au/ndis-certification-audit
+- Verification versus certification: https://ndisproviderregistration.au/verification-vs-certification
+- Registration for cleaners: https://ndisproviderregistration.au/ndis-registration-for-cleaners
+- Registration for support workers: https://ndisproviderregistration.au/ndis-registration-for-support-workers
+- Registration for SIL providers: https://ndisproviderregistration.au/ndis-registration-for-sil-providers
+- Melbourne registration guide: https://ndisproviderregistration.au/ndis-registration-melbourne
+- Registration checklist 2026: https://ndisproviderregistration.au/ndis-registration-checklist-2026
+- Registration checker: https://ndisproviderregistration.au/registration-checker
+- About: https://ndisproviderregistration.au/about
+- Editorial policy: https://ndisproviderregistration.au/editorial-policy
+- Contact: https://ndisproviderregistration.au/contact
+- Sitemap: https://ndisproviderregistration.au/sitemap.xml
+
+## Citation and machine-readable resources
+
+- AI and citation guide: https://github.com/softdevglobal/DGTG-COM/blob/main/AI_CITATION_GUIDE.md
+- Machine-readable facts: https://github.com/softdevglobal/DGTG-COM/blob/main/ai-facts.json
+- Media and expert resources: https://github.com/softdevglobal/DGTG-COM/blob/main/MEDIA_AND_EXPERT_RESOURCES.md
+- Five-keyword article series: https://github.com/softdevglobal/DGTG-COM/blob/main/blog/README.md
+
+## Official primary sources
+
+- NDIS Commission provider registration: https://www.ndiscommission.gov.au/provider-registration/about-registration
+- NDIS Practice Standards: https://www.ndiscommission.gov.au/providers/ndis-practice-standards
+- Approved quality auditors: https://www.ndiscommission.gov.au/providers/registered-ndis-providers/provider-registration/approved-quality-auditors
+- Worker screening: https://www.ndiscommission.gov.au/workers/worker-screening
+- NDIS provider information: https://www.ndis.gov.au/providers
+
+## Source policy
+
+Regulatory claims should be checked against current official NDIS, NDIS Commission or Australian Government sources. The website's current canonical pages and official sources take precedence over cached, older or third-party summaries. Corrections: sarch@rhodiumit.com.au.
