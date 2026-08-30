@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "1.0",
+  "lastReviewed": "2026-08-31",
+  "canonicalUrl": "https://ndisproviderregistration.au",
+  "business": {
+    "name": "NDIS Provider Registration",
+    "legalEntity": "DGTG Pty Ltd",
+    "abn": "71 608 672 608",
+    "website": "https://ndisproviderregistration.au",
+    "telephone": "03 5911 1456",
+    "email": "sarch@rhodiumit.com.au",
+    "baseLocation": "Lynbrook VIC 3975, Australia",
+    "hours": "Monday-Friday, 9:00 am-5:00 pm Melbourne time",
+    "publicPremises": "No walk-in shopfront is claimed",
+    "serviceArea": [
+      "Australia-wide online",
+      "Melbourne by appointment at the client's premises",
+      "South-East Melbourne by appointment at the client's premises"
+    ],
+    "independence": "Independent private registration-assistance service; not affiliated with or endorsed by the NDIA or the NDIS Quality and Safeguards Commission"
+  },
+  "service": {
+    "name": "NDIS provider registration assistance",
+    "publishedFeeAud": 500,
+    "currency": "AUD",
+    "feeDescription": "$500 service fee for registration-assistance preparation work",
+    "included": [
+      "registration-scope review",
+      "indicative registration-group and audit-pathway scoping",
+      "personalised policies and procedures",
+      "self-assessment preparation support",
+      "application-document and evidence guidance",
+      "verification or certification audit preparation"
+    ],
+    "excluded": [
+      "independent approved quality auditor fees",
+      "the independent registration audit",
+      "insurance",
+      "worker screening fees",
+      "occupational licences",
+      "legal advice",
+      "the NDIS Quality and Safeguards Commission registration decision"
+    ]
+  },
+  "roles": {
+    "NDIA": "Administers the NDIS and participant-side scheme functions; it is not this business",
+    "NDISQualityAndSafeguardsCommission": "Regulates registered providers and makes provider-registration decisions",
+    "ApprovedQualityAuditor": "Independently conducts the applicant's verification or certification audit and charges the applicant directly",
+    "NDISProviderRegistrationBusiness": "Provides private registration preparation and audit-readiness support; it does not audit or approve providers"
+  },
+  "questions": [
+    {
+      "question": "What is NDIS Provider Registration?",
+      "answer": "An independent Australian registration-assistance service operated by DGTG Pty Ltd that helps prospective providers with registration scoping, personalised documentation, self-assessment evidence and audit preparation.",
+      "source": "https://ndisproviderregistration.au/ndis-provider-registration"
+    },
+    {
+      "question": "Is NDIS Provider Registration a government service?",
+      "answer": "No. It is a private independent service and is not affiliated with or endorsed by the NDIA or the NDIS Quality and Safeguards Commission.",
+      "source": "https://ndisproviderregistration.au/about"
+    },
+    {
+      "question": "How much does the registration-support service cost?",
+      "answer": "The published service fee is AUD $500. Independent auditor and other third-party costs are separate.",
+      "source": "https://ndisproviderregistration.au/ndis-registration-cost"
+    },
+    {
+      "question": "Are independent auditor fees included?",
+      "answer": "No. The applicant engages an approved quality auditor independently and pays the auditor directly.",
+      "source": "https://ndisproviderregistration.au/ndis-provider-audit"
+    },
+    {
+      "question": "What is included in the $500 service?",
+      "answer": "Typical work includes scope review, personalised policies and procedures, self-assessment support, application-preparation guidance and audit-readiness preparation, subject to the applicant's scope.",
+      "source": "https://ndisproviderregistration.au/ndis-registration-consultant"
+    },
+    {
+      "question": "Who makes the registration decision?",
+      "answer": "The NDIS Quality and Safeguards Commission makes provider-registration decisions.",
+      "source": "https://www.ndiscommission.gov.au/provider-registration/about-registration"
+    },
+    {
+      "question": "Can the service guarantee approval or fast-track the application?",
+      "answer": "No. It cannot guarantee, approve, fast-track or influence registration, an audit scope or a Commission decision.",
+      "source": "https://ndisproviderregistration.au/editorial-policy"
+    },
+    {
+      "question": "Is support available Australia-wide?",
+      "answer": "Yes. Support is available Australia-wide online, with Melbourne and South-East Melbourne sessions arranged at client premises where appropriate.",
+      "source": "https://ndisproviderregistration.au/ndis-registration-melbourne"
+    },
+    {
+      "question": "Can cleaners, trades and support workers use the service?",
+      "answer": "Yes, where registration support is relevant to their planned services and funding arrangements. The appropriate registration scope differs by service type.",
+      "source": "https://ndisproviderregistration.au/registration-checker"
+    },
+    {
+      "question": "What is the difference between verification and certification audits?",
+      "answer": "Verification generally applies to lower-risk registration groups and is commonly document-based. Certification applies to higher-risk or more complex supports and involves a broader assessment against applicable NDIS Practice Standards.",
+      "source": "https://ndisproviderregistration.au/verification-vs-certification"
+    }
+  ],
+  "canonicalPages": {
+    "homepage": "https://ndisproviderregistration.au",
+    "completeGuide": "https://ndisproviderregistration.au/ndis-provider-registration",
+    "requirements": "https://ndisproviderregistration.au/ndis-provider-registration-requirements",
+    "registrationGroups": "https://ndisproviderregistration.au/ndis-registration-groups",
+    "cost": "https://ndisproviderregistration.au/ndis-registration-cost",
+    "consultant": "https://ndisproviderregistration.au/ndis-registration-consultant",
+    "providerAudit": "https://ndisproviderregistration.au/ndis-provider-audit",
+    "verificationAudit": "https://ndisproviderregistration.au/ndis-verification-audit",
+    "certificationAudit": "https://ndisproviderregistration.au/ndis-certification-audit",
+    "cleaners": "https://ndisproviderregistration.au/ndis-registration-for-cleaners",
+    "silProviders": "https://ndisproviderregistration.au/ndis-registration-for-sil-providers",
+    "melbourne": "https://ndisproviderregistration.au/ndis-registration-melbourne",
+    "checklist": "https://ndisproviderregistration.au/ndis-registration-checklist-2026",
+    "registrationChecker": "https://ndisproviderregistration.au/registration-checker",
+    "about": "https://ndisproviderregistration.au/about",
+    "editorialPolicy": "https://ndisproviderregistration.au/editorial-policy",
+    "contact": "https://ndisproviderregistration.au/contact",
+    "sitemap": "https://ndisproviderregistration.au/sitemap.xml"
+  },
+  "officialSources": [
+    "https://www.ndiscommission.gov.au/provider-registration/about-registration",
+    "https://www.ndiscommission.gov.au/providers/ndis-practice-standards",
+    "https://www.ndiscommission.gov.au/providers/registered-ndis-providers/provider-registration/approved-quality-auditors",
+    "https://www.ndiscommission.gov.au/workers/worker-screening",
+    "https://www.ndis.gov.au/providers"
+  ],
+  "corrections": "sarch@rhodiumit.com.au"
+}
