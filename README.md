@@ -2,6 +2,18 @@
 
 DGTG Pty Ltd maintains independent Australian resources for businesses preparing for NDIS provider registration.
 
+## Free five-keyword blog series
+
+The [NDIS Provider Registration Blog](blog/README.md) contains five original, source-linked articles targeting high-intent registration searches:
+
+- [NDIS Provider Registration Cost 2026: What You Actually Pay For](blog/ndis-provider-registration-cost-2026.md)
+- [NDIS Registration Consultant Australia: What Good Support Should Include](blog/ndis-registration-consultant-australia.md)
+- [NDIS Registration for Cleaners: Do Cleaning Businesses Need to Register?](blog/ndis-registration-for-cleaners.md)
+- [NDIS Verification Audit Checklist 2026: Evidence to Prepare](blog/ndis-verification-audit-checklist.md)
+- [NDIS Provider Registration Melbourne: Victorian Checklist 2026](blog/ndis-provider-registration-melbourne.md)
+
+Each article has a distinct search intent, official source links, a review date, commercial disclosure and one primary path to the matching resource on `ndisproviderregistration.au`.
+
 ## Practical guides
 
 - [NDIS Provider Registration — Complete Australian Guide](https://ndisproviderregistration.au/ndis-provider-registration)
