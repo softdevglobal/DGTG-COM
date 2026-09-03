@@ -8,6 +8,7 @@ Each article answers a distinct high-intent or time-sensitive question and links
 
 | Target search | Article | Main website resource |
 |---|---|---|
+| **how to become an NDIS provider in Victoria** | [How to Become an NDIS Provider in Victoria — 2026 Guide](how-to-become-an-ndis-provider-in-victoria-2026.md) | [Melbourne registration guide](https://ndisproviderregistration.au/ndis-registration-melbourne?utm_source=github&utm_medium=referral&utm_campaign=victoria_provider_guide&utm_content=blog_index) |
 | **SIL registration deadline 1 October 2026** | [SIL Provider Registration Deadline: 1 October 2026](sil-provider-registration-deadline-1-october-2026.md) | [SIL and 0138 registration guide](https://ndisproviderregistration.au/ndis-registration-for-sil-providers?utm_source=github&utm_medium=referral&utm_campaign=sil_deadline_2026&utm_content=blog_index) |
 | **NDIS provider registration cost 2026** | [NDIS Provider Registration Cost 2026: What You Actually Pay For](ndis-provider-registration-cost-2026.md) | [Registration cost guide](https://ndisproviderregistration.au/ndis-registration-cost?utm_source=github&utm_medium=referral&utm_campaign=five_keyword_blog&utm_content=blog_index_cost) |
 | **NDIS registration consultant Australia** | [NDIS Registration Consultant Australia: What Good Support Should Include](ndis-registration-consultant-australia.md) | [Consultant service guide](https://ndisproviderregistration.au/ndis-registration-consultant?utm_source=github&utm_medium=referral&utm_campaign=five_keyword_blog&utm_content=blog_index_consultant) |
@@ -27,6 +28,7 @@ Each article answers a distinct high-intent or time-sensitive question and links
 
 ## Free tools and next actions
 
+- [Read the Melbourne registration guide](https://ndisproviderregistration.au/ndis-registration-melbourne?utm_source=github&utm_medium=referral&utm_campaign=victoria_provider_guide&utm_content=blog_index_melbourne)
 - [Read the full SIL and 0138 registration guide](https://ndisproviderregistration.au/ndis-registration-for-sil-providers?utm_source=github&utm_medium=referral&utm_campaign=sil_deadline_2026&utm_content=blog_index_sil)
 - [Open the free SIL 0138 checklist](https://ndisproviderregistration.au/sil-0138-registration-checklist?utm_source=github&utm_medium=referral&utm_campaign=sil_deadline_2026&utm_content=blog_index_sil_checklist)
 - [Check an indicative registration pathway](https://ndisproviderregistration.au/registration-checker?utm_source=github&utm_medium=referral&utm_campaign=registration_blog&utm_content=blog_index_checker)
